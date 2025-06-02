@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineMax - Contact Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- Same Navigation as index.html -->
+
+  <!-- Page Header -->
+  <section class="page-header bg-dark text-light py-5">
+    <div class="container">
+      <h1 class="display-4">Contact Us</h1>
+      <p class="lead">We'd love to hear from you</p>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="mb-4">Get In Touch</h2>
+          <form id="contactForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Your Name *</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address *</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject *</label>
+              <select class="form-select" id="subject" required>
+                <option value="" selected disabled>Select a subject</option>
+                <option>General Inquiry</option>
+                <option>Technical Support</option>
+                <option>Advertising</option>
+                <option>Careers</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message *</label>
+              <textarea class="form-control" id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+        
+        <div class="col-md-6">
+          <h2 class="mb-4">Our Information</h2>
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-map-marker-alt me-2"></i>Address</h5>
+              <p class="card-text">123 Movie Street<br>Los Angeles, CA 90028<br>United States</p>
+              <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#mapModal">
+                <i class="fas fa-map me-2"></i>View on Map
+              </a>
+            </div>
+          </div>
+          
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-phone me-2"></i>Phone</h5>
+              <p class="card-text">+1 (555) 123-4567</p>
+              <p class="card-text"><small>Monday-Friday, 9am-5pm PST</small></p>
+            </div>
+          </div>
+          
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-envelope me-2"></i>Email</h5>
+              <p class="card-text">info@cinemax.com</p>
+              <p class="card-text">support@cinemax.com</p>
+            </div>
+          </div>
+          
+          <div class="mt-4">
+            <h5>Follow Us</h5>
+            <div class="social-icons">
+              <a href="#" class="btn btn-outline-dark me-2"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="btn btn-outline-dark me-2"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="btn btn-outline-dark me-2"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="btn btn-outline-dark me-2"><i class="fab fa-youtube"></i></a>
+              <a href="#" class="btn btn-outline-dark me-2"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Modal -->
+  <div class="modal fade" id="mapModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Our Location</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.453895146639!2d-118.32684192426494!3d34.08387397314365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b8b6b7b4a1a3%3A0x9c0a8c1b6f4e4b0!2sHollywood%20Walk%20of%20Fame!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a href="https://maps.google.com" target="_blank" class="btn btn-primary">
+            <i class="fas fa-directions me-2"></i>Get Directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Same Footer as index.html -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

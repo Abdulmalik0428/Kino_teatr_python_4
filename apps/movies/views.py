@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+def movies_view(request):
+    return render(request, 'movies.html')
+
+def single_movie_view(request):
+    return render(request, 'single-movie.html')

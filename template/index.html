@@ -1,0 +1,369 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineMax - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css.style.css' %}">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-film me-2"></i>CineMax
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="home/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'movies' %}">Movies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search movies...">
+          <button class="btn btn-outline-light" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4">Discover Your Next Favorite Movie</h1>
+      <p class="lead mb-5">Browse thousands of movies and TV shows. Create watchlists and get personalized recommendations.</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="movies.html" class="btn btn-primary btn-lg px-4">
+          <i class="fas fa-play me-2"></i>Browse Movies
+        </a>
+        <button class="btn btn-outline-light btn-lg px-4">
+          <i class="fas fa-plus me-2"></i>My List
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Trending Now Section -->
+    <section class="mb-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Trending Now</h2>
+        <a href="movies.html" class="btn btn-sm btn-outline-primary">View All</a>
+      </div>
+      <div class="row">
+        <!-- Movie Card 1 -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card movie-card">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">The Last Adventure</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">2023</span>
+                <span class="badge bg-success">8.5</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Action</span>
+                <span class="genre-badge badge bg-secondary">Adventure</span>
+              </div>
+              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Movie Card 2 -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card movie-card">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">Midnight Mystery</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">2023</span>
+                <span class="badge bg-success">7.9</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Thriller</span>
+                <span class="genre-badge badge bg-secondary">Mystery</span>
+              </div>
+              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Movie Card 3 -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card movie-card">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">Love in Paris</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">2023</span>
+                <span class="badge bg-success">6.8</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Romance</span>
+                <span class="genre-badge badge bg-secondary">Comedy</span>
+              </div>
+              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Movie Card 4 -->
+        <div class="col-md-4 col-lg-3">
+          <div class="card movie-card">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">Space Odyssey</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">2023</span>
+                <span class="badge bg-success">9.1</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Sci-Fi</span>
+                <span class="genre-badge badge bg-secondary">Adventure</span>
+              </div>
+              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Releases Section -->
+    <section class="mb-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Upcoming Releases</h2>
+        <a href="#" class="btn btn-sm btn-outline-primary">View All</a>
+      </div>
+      <div class="row">
+        <!-- Upcoming Movie 1 -->
+        <div class="col-md-3">
+          <div class="card movie-card">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              Coming Soon
+            </span>
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">The Lost Kingdom</h5>
+              <p class="text-muted">Release: June 15, 2023</p>
+              <button class="btn btn-outline-primary btn-sm w-100">Notify Me</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Upcoming Movie 2 -->
+        <div class="col-md-3">
+          <div class="card movie-card">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              Coming Soon
+            </span>
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">Ocean's Revenge</h5>
+              <p class="text-muted">Release: July 2, 2023</p>
+              <button class="btn btn-outline-primary btn-sm w-100">Notify Me</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Upcoming Movie 3 -->
+        <div class="col-md-3">
+          <div class="card movie-card">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              Coming Soon
+            </span>
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">The Last Stand</h5>
+              <p class="text-muted">Release: August 10, 2023</p>
+              <button class="btn btn-outline-primary btn-sm w-100">Notify Me</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Upcoming Movie 4 -->
+        <div class="col-md-3">
+          <div class="card movie-card">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              Coming Soon
+            </span>
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">Winter's Tale</h5>
+              <p class="text-muted">Release: December 5, 2023</p>
+              <button class="btn btn-outline-primary btn-sm w-100">Notify Me</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Rated Section -->
+    <section class="mb-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Top Rated</h2>
+        <a href="#" class="btn btn-sm btn-outline-primary">View All</a>
+      </div>
+      <div class="row">
+        <!-- Top Rated Movie 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="https://via.placeholder.com/200x300" class="img-fluid rounded-start h-100" alt="Movie Poster">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">The Dark Knight</h5>
+                  <div class="mb-2">
+                    <span class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </span>
+                    <span class="ms-2">9.0/10</span>
+                  </div>
+                  <p class="card-text">When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.</p>
+                  <p class="card-text"><small class="text-muted">2008 • Action, Crime, Drama</small></p>
+                  <a href="single-movie.html" class="btn btn-primary btn-sm">Watch Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Top Rated Movie 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="https://via.placeholder.com/200x300" class="img-fluid rounded-start h-100" alt="Movie Poster">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Inception</h5>
+                  <div class="mb-2">
+                    <span class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                    </span>
+                    <span class="ms-2">8.8/10</span>
+                  </div>
+                  <p class="card-text">A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.</p>
+                  <p class="card-text"><small class="text-muted">2010 • Action, Adventure, Sci-Fi</small></p>
+                  <a href="single-movie.html" class="btn btn-primary btn-sm">Watch Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Top Rated Movie 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="https://via.placeholder.com/200x300" class="img-fluid rounded-start h-100" alt="Movie Poster">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Pulp Fiction</h5>
+                  <div class="mb-2">
+                    <span class="rating">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </span>
+                    <span class="ms-2">8.9/10</span>
+                  </div>
+                  <p class="card-text">The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.</p>
+                  <p class="card-text"><small class="text-muted">1994 • Crime, Drama</small></p>
+                  <a href="single-movie.html" class="btn btn-primary btn-sm">Watch Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5 class="mb-4">CineMax</h5>
+          <p>Your ultimate destination for movies and TV shows. Discover, watch, and enjoy the best entertainment.</p>
+          <div class="social-icons">
+            <a href="#" class="text-light me-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-light me-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-light me-2"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-light me-2"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h5 class="mb-4">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html" class="text-light">Home</a></li>
+            <li class="mb-2"><a href="movies.html" class="text-light">Movies</a></li>
+            <li class="mb-2"><a href="about.html" class="text-light">About</a></li>
+            <li class="mb-2"><a href="contact.html" class="text-light">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="mb-4">Information</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#" class="text-light">Privacy Policy</a></li>
+            <li class="mb-2"><a href="#" class="text-light">Terms of Service</a></li>
+            <li class="mb-2"><a href="#" class="text-light">FAQ</a></li>
+            <li class="mb-2"><a href="#" class="text-light">Help Center</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5 class="mb-4">Newsletter</h5>
+          <p>Subscribe to our newsletter for the latest updates and movie releases.</p>
+          <form>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Your email">
+            </div>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <hr class="mt-4 mb-4 bg-light">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2023 CineMax. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

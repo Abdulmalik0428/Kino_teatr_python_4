@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+  <!-- Same Navigation as index.html -->
+
+  <!-- Page Header -->
+  <section class="page-header bg-dark text-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="display-4">All Movies</h1>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-end">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown">
+              Sort By: Popular
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Popular</a></li>
+              <li><a class="dropdown-item" href="#">Newest</a></li>
+              <li><a class="dropdown-item" href="#">Highest Rated</a></li>
+              <li><a class="dropdown-item" href="#">A-Z</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Movie Filters -->
+  <section class="movie-filters py-3 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="mb-3">Filter By:</h5>
+          <div class="btn-group flex-wrap" role="group">
+            <button type="button" class="btn btn-outline-secondary">All</button>
+            <button type="button" class="btn btn-outline-secondary">Action</button>
+            <button type="button" class="btn btn-outline-secondary">Comedy</button>
+            <button type="button" class="btn btn-outline-secondary">Drama</button>
+            <button type="button" class="btn btn-outline-secondary">Sci-Fi</button>
+            <button type="button" class="btn btn-outline-secondary">Horror</button>
+            <button type="button" class="btn btn-outline-secondary">Romance</button>
+            <button type="button" class="btn btn-outline-secondary">Thriller</button>
+            <button type="button" class="btn btn-outline-secondary">More...</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Movie Grid -->
+  <section class="movie-grid py-5">
+    <div class="container">
+      <div class="row">
+        <!-- Movie Card 1 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+          <div class="card movie-card h-100">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">The Last Adventure</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">2023</span>
+                <span class="badge bg-success">8.5</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Action</span>
+                <span class="genre-badge badge bg-secondary">Adventure</span>
+              </div>
+              <a href="{% url 'single_movie' %}" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Movie Card 2 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+          <div class="card movie-card h-100">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">Midnight Mystery</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">2023</span>
+                <span class="badge bg-success">7.9</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Thriller</span>
+                <span class="genre-badge badge bg-secondary">Mystery</span>
+              </div>
+              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Movie Card 3 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+          <div class="card movie-card h-100">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">Love in Paris</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">2023</span>
+                <span class="badge bg-success">6.8</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Romance</span>
+                <span class="genre-badge badge bg-secondary">Comedy</span>
+              </div>
+              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Movie Card 4 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+          <div class="card movie-card h-100">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">Space Odyssey</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">2023</span>
+                <span class="badge bg-success">9.1</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Sci-Fi</span>
+                <span class="genre-badge badge bg-secondary">Adventure</span>
+              </div>
+              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Movie Card 5 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+          <div class="card movie-card h-100">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">The Dark Knight</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">2008</span>
+                <span class="badge bg-success">9.0</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Action</span>
+                <span class="genre-badge badge bg-secondary">Crime</span>
+              </div>
+              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Movie Card 6 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+          <div class="card movie-card h-100">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">Inception</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">2010</span>
+                <span class="badge bg-success">8.8</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Sci-Fi</span>
+                <span class="genre-badge badge bg-secondary">Thriller</span>
+              </div>
+              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Movie Card 7 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+          <div class="card movie-card h-100">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">Pulp Fiction</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">1994</span>
+                <span class="badge bg-success">8.9</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Crime</span>
+                <span class="genre-badge badge bg-secondary">Drama</span>
+              </div>
+              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Movie Card 8 -->
+        <div class="col-md-4 col-lg-3 mb-4">
+          <div class="card movie-card h-100">
+            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <div class="card-body">
+              <h5 class="card-title">The Shawshank Redemption</h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">1994</span>
+                <span class="badge bg-success">9.3</span>
+              </div>
+              <div class="mb-2">
+                <span class="genre-badge badge bg-secondary">Drama</span>
+              </div>
+              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pagination -->
+      <nav class="mt-5">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Same Footer as index.html -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+{% endblock content %}
