@@ -67,8 +67,9 @@
                 <span class="badge bg-success">8.5</span>
               </div>
               <div class="mb-2">
-                <span class="genre-badge badge bg-secondary">Action</span>
-                <span class="genre-badge badge bg-secondary">Adventure</span>
+                {% for genre in movie.genres.all %}
+                <span class="genre-badge badge bg-secondary">{{genre.name}}</span>
+                {% endfor %}
               </div>
               <a href="{% url 'single_movie' movie.pk %}" class="btn btn-primary btn-sm w-100">Details</a>
             </div>
