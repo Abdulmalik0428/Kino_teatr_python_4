@@ -34,6 +34,6 @@ class Movie(BaseModel):
 class Trailer(BaseModel):
     title = models.CharField(max_length=500)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-
+    youtube_link = models.URLField(max_length=500 , blank=True , null=True)
     def __str__(self):
         return f"{self.title} - {self.movie.title}"
