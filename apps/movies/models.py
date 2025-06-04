@@ -24,7 +24,7 @@ class Movie(BaseModel):
     description = models.TextField(blank=True, null=True)
     release_date = models.DateTimeField()
     duration = models.DurationField()
-
+    poster = models.ImageField(upload_to='movies/poster', null = True)
     def __str__(self):
         return self.title
 

@@ -23,86 +23,31 @@
     <section class="mb-5">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold">Trending Now</h2>
-        <a href="movies.html" class="btn btn-sm btn-outline-primary">View All</a>
+        <a href="{% url 'movies_list' %}" class="btn btn-sm btn-outline-primary">View All</a>
       </div>
       <div class="row">
-        <!-- Movie Card 1 -->
-        <div class="col-md-4 col-lg-3">
-          <div class="card movie-card">
-            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
-            <div class="card-body">
-              <h5 class="card-title">The Last Adventure</h5>
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="text-muted">2023</span>
-                <span class="badge bg-success">8.5</span>
-              </div>
-              <div class="mb-2">
-                <span class="genre-badge badge bg-secondary">Action</span>
-                <span class="genre-badge badge bg-secondary">Adventure</span>
-              </div>
-              <a href="{% url 'single_movie' %}" class="btn btn-primary btn-sm w-100">Details</a>
-            </div>
-          </div>
-        </div>
-        
+
+
+        {% for movie in movies %}
         <!-- Movie Card 2 -->
         <div class="col-md-4 col-lg-3">
           <div class="card movie-card">
-            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
+            <img src="{{ movie.poster.url }}" class="card-img-top movie-poster" alt="Movie Poster">
             <div class="card-body">
-              <h5 class="card-title">Midnight Mystery</h5>
+              <h5 class="card-title">{{movie.title}}</h5>
               <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="text-muted">2023</span>
+                <span class="text-muted">{{ movie.release_date }}</span>
                 <span class="badge bg-success">7.9</span>
               </div>
               <div class="mb-2">
                 <span class="genre-badge badge bg-secondary">Thriller</span>
                 <span class="genre-badge badge bg-secondary">Mystery</span>
               </div>
-              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
+              <a href="{% url 'single_movie' movie.pk %}" class="btn btn-primary btn-sm w-100">Details</a>
             </div>
           </div>
         </div>
-        
-        <!-- Movie Card 3 -->
-        <div class="col-md-4 col-lg-3">
-          <div class="card movie-card">
-            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
-            <div class="card-body">
-              <h5 class="card-title">Love in Paris</h5>
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="text-muted">2023</span>
-                <span class="badge bg-success">6.8</span>
-              </div>
-              <div class="mb-2">
-                <span class="genre-badge badge bg-secondary">Romance</span>
-                <span class="genre-badge badge bg-secondary">Comedy</span>
-              </div>
-              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Movie Card 4 -->
-        <div class="col-md-4 col-lg-3">
-          <div class="card movie-card">
-            <img src="https://via.placeholder.com/300x450" class="card-img-top movie-poster" alt="Movie Poster">
-            <div class="card-body">
-              <h5 class="card-title">Space Odyssey</h5>
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="text-muted">2023</span>
-                <span class="badge bg-success">9.1</span>
-              </div>
-              <div class="mb-2">
-                <span class="genre-badge badge bg-secondary">Sci-Fi</span>
-                <span class="genre-badge badge bg-secondary">Adventure</span>
-              </div>
-              <a href="single-movie.html" class="btn btn-primary btn-sm w-100">Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        {% endfor %}
 
     <!-- Upcoming Releases Section -->
     <section class="mb-5">
@@ -180,6 +125,8 @@
         <a href="#" class="btn btn-sm btn-outline-primary">View All</a>
       </div>
       <div class="row">
+
+        {% for movie in movies %}
         <!-- Top Rated Movie 1 -->
         <div class="col-md-6 col-lg-4">
           <div class="card mb-3">
@@ -202,13 +149,13 @@
                   </div>
                   <p class="card-text">When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.</p>
                   <p class="card-text"><small class="text-muted">2008 • Action, Crime, Drama</small></p>
-                  <a href="single-movie.html" class="btn btn-primary btn-sm">Watch Now</a>
+                  <a href="{% url 'single_movie' movie.pk %}" class="btn btn-primary btn-sm">Watch Now</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+        {% endfor %}
         <!-- Top Rated Movie 2 -->
         <div class="col-md-6 col-lg-4">
           <div class="card mb-3">
