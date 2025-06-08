@@ -1,5 +1,9 @@
-from django.shortcuts import render , get_object_or_404
-from .models import Movie
+from django.shortcuts import render , get_object_or_404 , redirect
+from .models import Movie , Review
+
+from django.urls import reverse
+from django.db.models import Avg
+from django.core.paginator import Paginator
 
 
 
@@ -14,5 +18,21 @@ def movies_view(request):
 
 def single_movie_view(request , pk):
     movie = get_object_or_404(Movie, pk=pk)
-    return render(request, 'single-movie.html', context={'movie': movie})
+    rating = Review.objects.filter(movie=movie).aggregate(Avg('rating'))
+    return render(request, 'single-movie.html', context={'movie': movie,'rating':rating['rating__avg']},)
  
+
+def add_review_view(request, pk):
+    comment = request.POST.get('comment')
+    rating = int(request.POST.get('rating',1))
+    name = request.POST.get('name')
+    email = request.POST.get('email')
+    movie = Movie.objects.get(id=pk)
+
+    Review.objects.create(comment=comment,
+                          rating=rating,
+                          name=name,
+                          email=email,
+                          movie=movie)
+
+    return redirect(reverse('single_movie', kwargs={'pk': pk}))

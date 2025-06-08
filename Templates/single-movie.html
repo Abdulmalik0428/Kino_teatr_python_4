@@ -14,20 +14,28 @@
                 <div class="col-md-8 p-5">
                     <h1 class="display-4 mb-3">{{ movie.title }} <span class="text-muted">({{ movie.release_date.year }})</span></h1>
                     
-                    <div class="mb-4">
-                        <span class="rating fs-4">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </span>
-                        <span class="ms-2">8.5/10</span>
-                        <span class="mx-3">|</span>
-                        <span>{{ movie.duration }}</span>
-                        <span class="mx-3">|</span>
-                        <span>PG-13</span>
-                    </div>
+                <div class="mb-4">
+                    <span class="rating fs-4">
+                        {% for i in "12345" %}
+                            {% with forloop.counter|add:"-1" as index %}
+                                {% with index|add:index as doubled %}
+                                    {% if rating >= doubled|add:"2" %}
+                                        <i class="fas fa-star"></i>
+                                    {% elif rating >= doubled|add:"1" %}
+                                        <i class="fas fa-star-half-alt"></i>
+                                    {% else %}
+                                        <i class="far fa-star"></i>
+                                    {% endif %}
+                                {% endwith %}
+                            {% endwith %}
+                        {% endfor %}
+                    </span>
+                    <span class="ms-2">{{ rating }}/10</span>
+                    <span class="mx-3">|</span>
+                    <span>{{ movie.duration }}</span>
+                    <span class="mx-3">|</span>
+                    <span>PG-13</span>
+                </div>
                     
                     <div class="mb-4">
                         {% for genre in movie.genres.all %}
@@ -159,6 +167,49 @@
 
 {% endif %}
 
+            <!-- Video Section -->
+            {% if movie.video %}
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="mb-4">Movie</h3>
+                    <div class="trailer-container rounded">
+                        <video src="{{ movie.video.url }}" autoplay="False" controls></video>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Add Review Section -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="mb-4">Leave a Review</h3>
+                    <form method="post" action="{% url 'add_review' movie.id %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rating" class="form-label">Rating</label>
+                            <select class="form-select" id="rating" name="rating" required>
+                                <option value="">Choose...</option>
+                                {% for i in "12345678910"|make_list %}
+                                    <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Review</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
 
     <!-- Same footer as index.html -->
 </body>
