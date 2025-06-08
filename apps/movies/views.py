@@ -8,7 +8,7 @@ from django.core.paginator import Paginator
 
 
 def movies_view(request):
-    search = request.GET.get('search')
+    search = request.GET.get('search') 
     if search:
         movies = Movie.objects.filter(title__icontains=search)
     else:
@@ -18,13 +18,17 @@ def movies_view(request):
 
 def single_movie_view(request , pk):
     movie = get_object_or_404(Movie, pk=pk)
-    rating = Review.objects.filter(movie=movie).aggregate(Avg('rating'))
-    return render(request, 'single-movie.html', context={'movie': movie,'rating':rating['rating__avg']},)
+    reviews = Review.objects.filter(movie=movie)
+    rating = reviews.aggregate(Avg('rating'))
+    return render(request, 'single-movie.html', context={'movie': movie,
+                                                         'rating':rating['rating__avg'], 
+                                                         'ratings': range(1,11),
+                                                         'reviews':reviews})
  
 
 def add_review_view(request, pk):
     comment = request.POST.get('comment')
-    rating = int(request.POST.get('rating',1))
+    rating = request.POST.get('rating',1)
     name = request.POST.get('name')
     email = request.POST.get('email')
     movie = Movie.objects.get(id=pk)
@@ -33,6 +37,6 @@ def add_review_view(request, pk):
                           rating=rating,
                           name=name,
                           email=email,
-                          movie=movie)
+                          movie=movie,)
 
     return redirect(reverse('single_movie', kwargs={'pk': pk}))

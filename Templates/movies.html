@@ -50,6 +50,30 @@
     </div>
   </section>
 
+      <!-- Movies Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <form method="GET" action="{% url 'movies_list' %}">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="search" placeholder="Search movies...">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <select class="form-select">
+                        <option selected>Filter by Genre</option>
+                        <option>Action</option>
+                        <option>Comedy</option>
+                        <option>Drama</option>
+                        <option>Sci-Fi</option>
+                        <option>Horror</option>
+                    </select>
+                </div>
+            </div>
+
   <!-- Movie Grid -->
   <section class="movie-grid py-5">
     <div class="container">

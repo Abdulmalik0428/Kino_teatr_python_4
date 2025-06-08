@@ -30,7 +30,9 @@
                             {% endwith %}
                         {% endfor %}
                     </span>
-                    <span class="ms-2">{{ rating }}/10</span>
+                    {% if rating %}
+                        <span class="ms-2">{{ rating }}/10</span>
+                    {% endif %}    
                     <span class="mx-3">|</span>
                     <span>{{ movie.duration }}</span>
                     <span class="mx-3">|</span>
@@ -179,6 +181,26 @@
             </div>
             {% endif %}
 
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="mb-4">Reviews</h3>
+                    {% if reviews %}
+                        {% for review in reviews %}
+                            <div class="mb-4 border rounded p-3">
+                                <div class="d-flex justify-content-between">
+                                    <h5>{{ review.name }}</h5>
+                                    <small class="text-muted">{{ review.created_at|date:"F j, Y, g:i a" }}</small>
+                                </div>
+                                <p class="mb-1"><strong>Rating:</strong> {{ review.rating }}/10</p>
+                                <p>{{ review.comment }}</p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No reviews yet. Be the first to leave one!</p>
+                    {% endif %}
+                </div>
+            </div>
+
             <!-- Add Review Section -->
             <div class="row mt-5">
                 <div class="col-12">
@@ -197,7 +219,7 @@
                             <label for="rating" class="form-label">Rating</label>
                             <select class="form-select" id="rating" name="rating" required>
                                 <option value="">Choose...</option>
-                                {% for i in "12345678910"|make_list %}
+                                {% for i in ratings %}
                                     <option value="{{ i }}">{{ i }}</option>
                                 {% endfor %}
                             </select>
