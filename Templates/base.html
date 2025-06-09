@@ -34,12 +34,29 @@
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
+
         <form class="d-flex" method = 'GET' action="{% url  'movies_list' %}">
           <input class="form-control me-2" name='search' type="search" placeholder="Search movies...">
           <button class="btn btn-outline-light" type="submit">
             <i class="fas fa-search"></i>
           </button>
         </form>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          {% if not request.user.is_authenticated %}
+          <li class="nav-item me-2">
+            <a class="btn btn-outline-light" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-light text-dark" href="{% url 'register' %}">Register</a>
+          </li>
+          {% else %}
+          <li>
+            <div class="col-md-6 d-flex justify-content-md-start justify-content-center align-items-center">
+              <p class="text-white mb-0">Welcome&nbsp;<a href="#" class="text-decoration-none text-info">{{ request.user.username }}</a></p>
+            </div>
+          </li>
+          {% endif %}
+        </ul>
       </div>
     </div>
   </nav>
