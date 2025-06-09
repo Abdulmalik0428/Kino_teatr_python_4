@@ -1,5 +1,6 @@
 from django.shortcuts import render , get_object_or_404 , redirect
-from .models import Movie , Review
+from .models import Movie , Review 
+from apps.meta.models import MovieView
 
 from django.urls import reverse
 from django.db.models import Avg
@@ -20,10 +21,14 @@ def single_movie_view(request , pk):
     movie = get_object_or_404(Movie, pk=pk)
     reviews = Review.objects.filter(movie=movie)
     rating = reviews.aggregate(Avg('rating'))
-    return render(request, 'single-movie.html', context={'movie': movie,
-                                                         'rating':rating['rating__avg'], 
-                                                         'ratings': range(1,11),
-                                                         'reviews':reviews})
+    MovieView.objects.create(movie=movie)
+    return render(request, 
+                    'single-movie.html', 
+                    context={'movie': movie,
+                            'rating':rating['rating__avg'], 
+                            'ratings': range(1,11),
+                            'reviews':reviews,
+                            'views': movie.views_count})
  
 
 def add_review_view(request, pk):
@@ -40,3 +45,4 @@ def add_review_view(request, pk):
                           movie=movie,)
 
     return redirect(reverse('single_movie', kwargs={'pk': pk}))
+

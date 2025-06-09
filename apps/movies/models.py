@@ -30,7 +30,12 @@ class Movie(BaseModel):
     video = models.FileField(upload_to='movies/movie_files', blank=True, null=True)
     def __str__(self):
         return self.title
-
+    
+    @property
+    def views_count(self):
+        views = self.movieview_set.count()
+        print(views)
+        return views
 
 class Trailer(BaseModel):
     title = models.CharField(max_length=500)
@@ -38,6 +43,7 @@ class Trailer(BaseModel):
     youtube_link = models.URLField(max_length=500 , blank=True , null=True)
     def __str__(self):
         return f"{self.title} - {self.movie.title}"
+    
 
 
 class Review(BaseModel):
@@ -49,3 +55,4 @@ class Review(BaseModel):
 
     def __str__(self):
         return f"{self.movie} - {self.rating}"
+

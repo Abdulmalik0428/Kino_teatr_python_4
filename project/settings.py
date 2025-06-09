@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'apps.movies',
     'apps.common',
+    'apps.meta',
 ]
 
 MIDDLEWARE = [
