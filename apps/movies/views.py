@@ -1,11 +1,15 @@
 from django.shortcuts import render , get_object_or_404 , redirect
 from .models import Movie , Review 
 from apps.meta.models import MovieView
+from .utils import get_client_ip
+
 
 from django.urls import reverse
 from django.db.models import Avg
 from django.core.paginator import Paginator
 
+from datetime import timedelta
+from django.utils import timezone
 
 
 def movies_view(request):
@@ -21,7 +25,16 @@ def single_movie_view(request , pk):
     movie = get_object_or_404(Movie, pk=pk)
     reviews = Review.objects.filter(movie=movie)
     rating = reviews.aggregate(Avg('rating'))
-    MovieView.objects.create(movie=movie)
+    ip_address = get_client_ip(request)
+    movie_view = MovieView.objects.filter(ip=ip_address).last()
+    if not movie_view or timezone.now() - movie_view.created_at >= timedelta(hours=1):
+        new_view = MovieView.objects.create(movie=movie ,
+                                            ip = ip_address ,
+                                            user=request.user )
+        if request.user.is_authenticated :
+            new_view.user=request.user
+            new_view.save()
+
     return render(request, 
                     'single-movie.html', 
                     context={'movie': movie,
