@@ -18,7 +18,11 @@ def movies_view(request):
         movies = Movie.objects.filter(title__icontains=search)
     else:
         movies = Movie.objects.all()
-    return render(request, 'movies.html', context={'movies': movies})
+    paginator = Paginator(movies, 20)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'movies.html', context={'movies': movies, 
+                                                   'page_obj':page_obj})
 
 
 def single_movie_view(request , pk):
